@@ -1,19 +1,27 @@
 import axios from 'axios';
 
+function setInventory(inventory) {
+    return {
+        type: "SET_INVENTORY",
+        inventory
+    }
+}
+
 export function getInventory() {
     return dispatch => {
-        axios.get('/getInventory').then(res => {
-            dispatch({
-                type: "GET_INVENTORY",
-                inventory: res.data
+        axios.get('/inventory')
+            .then(res => {
+                console.log(res);
+                dispatch(setInventory(res.data))
+            }).catch(err => {
+                console.log(err)
             })
-        })
     }
 }
 
 export default function reducer(inventory = [], action) {
     switch(action.type) {
-        case "GET_INVENTORY":
+        case "SET_INVENTORY":
             return action.inventory
         default:
             return inventory

@@ -20,9 +20,7 @@ class Inventory extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.props.inventory.length === 0) {
-            this.props.getInventory();
-        }
+        this.props.getInventory();
         var categories = [];
         var brands = [];
         this.props.inventory.map(item => {
@@ -38,6 +36,9 @@ class Inventory extends React.Component {
             brands: brands,
             category: categories
         })
+    }
+    componentDidUpdate() {
+        console.log(this.props)
     }
     loadImage = (img, i) => {
         loadImage(
@@ -177,6 +178,7 @@ class Inventory extends React.Component {
         return header;
     }
     render() {
+        console.log(this.props)
         return (
             this.props.category.isClicked 
             ? 
@@ -195,7 +197,6 @@ class Inventory extends React.Component {
                     {this.showCategory()}
                 </div>
             </div>
-
         )
     }
 }

@@ -43,14 +43,12 @@ export function setSort(sortBy) {
     }
 }
 
-
-
 const initialState = {
     category: '',
     id: '',
     isClicked: false,
     brand: '',
-    sortBy: ''
+    sortBy: '',
 }
 
 export default function reducer (state = initialState, action) {

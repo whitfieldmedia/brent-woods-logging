@@ -4,14 +4,13 @@ const Schema = mongoose.Schema;
 const inventorySchema = new Schema({
     name: String,
     hours: String,
-    price: String,
-    description: String,
-    year: String,
-    brand: String,
     category: String,
+    price: String,
+    type: String,
     year: String,
     brand: String,
-    images: []
+    description: String,
+    images: Array
 })
 
 module.exports = mongoose.model("Inventory", inventorySchema);
