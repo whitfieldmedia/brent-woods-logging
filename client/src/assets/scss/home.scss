@@ -1,0 +1,71 @@
+@import 'assets';
+
+.home-page {
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 80px 0 0 0;
+    padding: 0;
+    width: 100vw;
+    height: auto;
+    background: url('../images/wood-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home-inventory-section {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin: 50px auto;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    background: rgba(255,255,255,.8);
+    border-radius: 50px;
+}
+.header2 {
+    font-family: $serif2;
+    font-size: 35px;
+    color: $black;
+}
+
+.home-inventory-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.home-inventory-holder {
+    display: flex; 
+    flex-flow: column;
+    justify-content: space-between;
+    justify-items: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    width: 175px;
+    margin: 25px;
+    height: auto;
+}
+.home-inventory-name {
+    font-family: $sans;
+    font-size: 18px;
+    color: $dark;
+    text-align: center;
+}
+.home-inventory-icon {
+    width: auto;
+    height: auto;
+    width: 100px;
+    height: 100px;
+}

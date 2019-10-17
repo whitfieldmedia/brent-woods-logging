@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,500,700|Exo+2:400,500,600|Frank+Ruhl+Libre:400,500,700|Nunito:400,600,700|Poppins:300,400,500,600,700|Spectral:400,500,600&display=swap");
+.inventory-images {
+  display: inline-block;
+}
+
+.category-page {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  justify-items: space-evenly;
+  margin: 100px auto 50px auto;
+  padding: 0;
+  width: auto;
+  max-width: 800px;
+  height: auto;
+  border: 1px solid #454839;
+  padding: 10px;
+  border-radius: 25px;
+  background: #f7f7f7;
+}
+
+.inventory-page {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  justify-items: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+.small-inventory-wrapper {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  margin: 0px auto 10px auto;
+  background: #f9f9f9;
+  width: 500px;
+  border: 1px solid #454839;
+  padding: 0;
+  overflow: hidden;
+  height: auto;
+}
+
+.small-inventory-column {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.inventory-column2 {
+  margin: 10px auto;
+}
+
+.inventory-small-name {
+  font-family: "Spectral", serif;
+  font-size: 25px;
+  color: #3a3a3a;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.inventory-small-text {
+  font-family: "Spectral", serif;
+  font-size: 18px;
+  color: #454839;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.inventory-image-small {
+  width: 250px;
+  height: 200px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  transform: rotate(90deg);
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+}
+
+.inventory-image-small-portrait {
+  width: 200px;
+  height: 250px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+}
+
+.inventory-image-small-container {
+  width: 200px;
+  height: 100%;
+  position: relative;
+  margin: 0 20px 0 0;
+}
+
+.text-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
+.inventory-small-header {
+  font-family: "Exo 2", sans-serif;
+  font-size: 18px;
+  color: #212121;
+  font-weight: 600;
+}
+
+.inventory-small-price {
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  color: #0a9600;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.inventory-small-par {
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  color: #212121;
+  padding-left: 10px;
+  font-weight: 500;
+}
+
+.inventory-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 100px auto 50px auto;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.inventory-details-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  margin: 10px auto;
+}
+
+.details-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  margin: 10px auto;
+}
+
+.inventory-column {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inventory-name {
+  font-family: "Exo 2", sans-serif;
+  font-size: 35px;
+  color: #3a3a3a;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.inventory-par {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  color: #454839;
+  margin: 0;
+  padding: 10px 0;
+  text-align: left;
+  width: auto;
+  max-width: 800px;
+}
+
+.inventory-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: #454839;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.inventory-price {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  color: #0a9600;
+  margin: 0;
+  padding: 10px 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.inventory-hours {
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  color: #454839;
+  margin: 0;
+  padding: 10px 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.recommended-holder {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  width: auto;
+  height: auto;
+  left: 0;
+  margin: 0 25px;
+}
+
+.recommended-wrapper {
+  display: block;
+  width: auto;
+  padding: 5px 20px 5px 5px;
+  margin: 0px 20px;
+}
+
+.recommended-header {
+  font-family: "Spectral", serif;
+  font-size: 35px;
+  color: #3a3a3a;
+  text-align: center;
+}
+
+.recommended-column {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.inventory-slider-container {
+  width: auto;
+  margin: auto;
+}
+
+@media only screen and (max-width: 850px) {
+  .category-page {
+    width: 90%;
+    margin-bottom: 100px;
+    flex-flow: column;
+  }
+
+  .small-inventory-wrapper {
+    width: 90%;
+    min-width: 300px;
+    height: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 250px auto;
+  }
+
+  .inventory-image-small-container {
+    width: 250px;
+    height: 300px;
+    margin: auto;
+  }
+
+  .inventory-image-small {
+    width: 300px;
+    height: 250px;
+    background-size: cover;
+    margin: auto 0;
+  }
+
+  .inventory-image-small-portrait {
+    width: 250px;
+    height: 300px;
+    margin: auto 0;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .small-inventory-wrapper {
+    flex-flow: column;
+  }
+}
+
+/*# sourceMappingURL=inventory.css.map */

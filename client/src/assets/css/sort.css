@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,500,700|Exo+2:400,500,600|Frank+Ruhl+Libre:400,500,700|Nunito:400,600,700|Poppins:300,400,500,600,700|Spectral:400,500,600&display=swap");
+.sort-container {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: relative;
+}
+
+.sort-header {
+  font-family: "Alegreya", serif;
+  font-size: 20px;
+  color: #3a3a3a;
+  margin: 0;
+  padding: 5px;
+  background: #e8e8e8;
+  width: 100%;
+  position: relative;
+  border: 1px solid #454839;
+}
+
+.sort-column {
+  width: 100%;
+}
+
+.sort-wrapper {
+  list-style-type: none;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-flow: column;
+  margin: 0;
+  padding: 5px;
+  width: 100%;
+  background: #f7f7f7;
+  border-left: 1px solid #454839;
+  border-right: 1px solid #454839;
+}
+
+.sort-wrapper:last-child {
+  border-bottom: 1px solid #454839;
+}
+
+.sort-item {
+  width: auto;
+  height: auto;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3px 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #D8D8D8;
+  margin-right: 10px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+.check-box i {
+  color: #f7f7f7;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+}
+
+.check-box-clicked {
+  background: #00A4E3;
+}
+.check-box-clicked i {
+  color: #fff;
+}
+
+.center-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f7f7f7;
+}
+
+@media only screen and (max-width: 850px) {
+  .sort-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    flex-flow: row;
+    z-index: 100;
+    height: auto;
+    overflow: visible;
+    align-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .sort-wrapper {
+    display: none;
+  }
+
+  .sort-header {
+    text-align: center;
+    bottom: 0;
+    position: relative;
+    z-index: 101;
+    font-family: "Alegreya", serif;
+    font-size: 20px;
+    color: #3a3a3a;
+    padding: 15px 5px;
+  }
+
+  .sort-wrapper-show {
+    list-style-type: none;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    padding: 5px;
+    background: #f7f7f7;
+    border-left: 1px solid #454839;
+    border-right: 1px solid #454839;
+    border-top: 1px solid #454839;
+    position: relative;
+    z-index: 100;
+    bottom: calc(height + 50px);
+  }
+
+  .sort-column {
+    display: flex;
+    flex-flow: column-reverse;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=sort.css.map */

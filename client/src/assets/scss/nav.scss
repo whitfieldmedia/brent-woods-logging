@@ -1,0 +1,53 @@
+@import 'assets';
+
+.navbar-container {
+    width: 100vw;
+    height: auto;
+    min-height: 80px;
+    background: $gray;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.nav-header-link {
+    text-decoration: none;
+}
+
+.nav-header {
+    font-family: $serif3;
+    font-size: 30px;
+    color: $black;
+    margin: 0 0 0 25px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: row;
+    margin: 0 25px 0 auto;
+}
+.nav-link-holder {
+    width: 100%;
+    height: 100%;
+    margin: 0 15px;
+    list-style-type: none;
+
+}
+.nav-link {
+    font-family: $sans;
+    font-size: 20px;
+    color: $dark;
+    text-decoration: none;
+}
+
+
