@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,500,700|Exo+2:400,500,600|Frank+Ruhl+Libre:400,500,700|Nunito:400,600,700|Poppins:300,400,500,600,700|Spectral:400,500,600&display=swap");
+.about-section {
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 50px auto 0 auto;
+}
+
+.about-header {
+  font-family: "Spectral", serif;
+  font-size: 30px;
+  color: #3a3a3a;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.about-par {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: #454839;
+}
+
+/*# sourceMappingURL=about.css.map */

@@ -3,18 +3,17 @@
 .navbar-container {
     width: 100vw;
     height: auto;
-    min-height: 80px;
-    background: $gray;
     margin: 0;
-    padding: 0;
+    background: $white;
     display: flex;
     flex-flow: row;
     align-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
+    border-bottom: 2px solid $gray;
 }
 .nav-header-link {
     text-decoration: none;
@@ -27,6 +26,12 @@
     margin: 0 0 0 25px;
     font-weight: 700;
     text-decoration: none;
+}
+
+.nav-header-logo {
+    margin-left: 25px;
+    height: 80px;
+    padding-top: 5px;
 }
 
 .navbar {

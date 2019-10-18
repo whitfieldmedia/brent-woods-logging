@@ -1,6 +1,6 @@
 @import 'assets';
 
-.home-page {
+.home-top-section {
     display: flex;
     flex-flow: column;
     justify-items: center;
@@ -27,7 +27,7 @@
     align-items: center;
     position: relative;
     background: rgba(255,255,255,.8);
-    border-radius: 50px;
+    border-radius: 25px;
 }
 .header2 {
     font-family: $serif2;
@@ -38,7 +38,7 @@
 .home-inventory-container {
     display: flex;
     flex-flow: row wrap;
-    width: 80%;
+    width: 100%;
     justify-content: center;
     justify-items: center;
     align-content: center;
@@ -54,7 +54,7 @@
     align-items: center;
     padding: 0;
     width: 175px;
-    margin: 25px;
+    margin: 10px;
     height: auto;
 }
 .home-inventory-name {

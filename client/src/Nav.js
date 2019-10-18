@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from './assets/icons/logo3.svg';
 import './assets/scss/nav.scss';
 
 class Nav extends React.Component {
@@ -7,9 +8,7 @@ class Nav extends React.Component {
         return (
             <div className="navbar-container">
                 <Link to="/" className="nav-header-link"> 
-                    <h2 className="nav-header">  
-                        Woods Logging  
-                    </h2> 
+                    <img src={logo} className="nav-header-logo" alt="Woods Logging"/>
                 </Link>
                 <ul className="navbar">
                     <li className="nav-link-holder">

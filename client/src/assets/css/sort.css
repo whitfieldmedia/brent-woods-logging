@@ -9,18 +9,17 @@
   align-items: flex-start;
   align-content: flex-start;
   position: relative;
+  cursor: pointer;
 }
 
 .sort-header {
   font-family: "Alegreya", serif;
   font-size: 20px;
-  color: #3a3a3a;
+  color: #212121;
   margin: 0;
   padding: 5px;
-  background: #e8e8e8;
   width: 100%;
   position: relative;
-  border: 1px solid #454839;
 }
 
 .sort-column {
@@ -36,13 +35,6 @@
   margin: 0;
   padding: 5px;
   width: 100%;
-  background: #f7f7f7;
-  border-left: 1px solid #454839;
-  border-right: 1px solid #454839;
-}
-
-.sort-wrapper:last-child {
-  border-bottom: 1px solid #454839;
 }
 
 .sort-item {

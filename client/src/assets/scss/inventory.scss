@@ -5,19 +5,49 @@
 }
 .category-page {
     display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    margin: 60px auto 50px auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.category-wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.category-header {
+    font-family: $serif3;
+    font-size: 35px;
+    color: $black;
+    text-align: center;
+    border-bottom: 2px solid $gray;
+    width: 100%;
+}
+.inventory-cta {
+    width: 170px;
+    height: 35px;
+    display: flex;
     flex-flow: row;
     justify-content: space-evenly;
-    justify-items: space-evenly;
-    margin: 100px auto 50px auto;
+    align-items: center;
+    border-radius: 10px;
+    font-family: $sans;
+    font-size: 18px;
+    font-weight: 600;
+    color: $white;
+    margin: 10px 0 0 0;
     padding: 0;
-    width: auto;
-    max-width: 800px;
-    height: auto;
-    border: 1px solid $dark;
-    padding: 10px;
-    border-radius: 25px;
-    background: $white;
-
+    background: linear-gradient($lGreen, $green2);
+    i {
+        color: $white;
+        margin: 0 0 0 5px;
+        padding: 0;
+    }
 }
 .inventory-page {
     margin: 0;
@@ -26,44 +56,52 @@
     flex-flow: column;
     justify-content: space-evenly;
     justify-items: space-evenly;
-    align-items: center;
-    align-content: center;
+    align-items: flex-start;
+    width: 100%;
 }
 .small-inventory-wrapper {
     display: flex;
     flex-flow: row;
+    justify-content: flex-start;
     align-items: flex-start;
-    margin: 0px auto 10px auto;
-    background: #f9f9f9;
-    width: 500px;
-    border: 1px solid $dark;
-    padding: 0;
+    margin: 0px auto 10px 10px;
+    width: 95%;
+    padding: 0 0 10px 0;
     overflow: hidden;
     height: auto;
+    border-bottom: 1px solid $gray;
+    cursor: pointer;
 }
 .small-inventory-column {
     width: auto;
     height: auto;
     display: flex;
     flex-flow: column;
-    align-content: center;
-    align-items: center;
-    justify-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
 }
 .inventory-column2 {
-    margin: 10px auto;
+    margin: 5px 5px 5px 20px;
+    padding: 0;
+}
+
+.small-inventory-wrapper:hover {
+    .inventory-small-name {
+        color: $green2;
+        text-decoration: underline;
+    }
 }
 
 .inventory-small-name {
     font-family: $serif3;
-    font-size: 25px;
+    font-size: 30px;
     color: $black;
     margin: 0;
-    padding: 0;
+    padding: 5px 0 8px 0;
     text-align: center;
+    line-height: 25px;
 }
 .inventory-small-text {
     font-family: $serif3;
@@ -101,7 +139,11 @@
     width: 200px;
     height: 100%;
     position: relative;
-    margin: 0 20px 0 0;
+    margin: 0 20px 0px 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-row {
@@ -111,26 +153,25 @@
     justify-items: center;
     align-content: center;
     align-items: center;
+    margin: 0;
+    padding: 7px 0;
 }
-.inventory-small-header {
-    font-family: $sans3;
-    font-size: 18px;
-    color: $b;
-    font-weight: 600;
-}
+
 .inventory-small-price {
     font-family: $sans3;
-    font-size: 20px;
+    font-size: 25px;
     color: $lGreen;
-    padding-left: 10px;
     font-weight: 600;
+    margin: 0;
+    padding: 8px 0;
 }
 .inventory-small-par {
     font-family: $sans3;
-    font-size: 20px;
+    font-size: 25px;
     color: $b;
-    padding-left: 10px;
     font-weight: 500;
+    margin: 0;
+    padding: 8px 0;
 }
 
 .inventory-wrapper {
@@ -138,7 +179,7 @@
     height: auto;
     display: flex;
     flex-flow: row wrap;
-    margin: 100px auto 50px auto;
+    margin: 40px auto 50px auto;
     justify-content: center;
     align-items: flex-start;
 }
@@ -216,16 +257,25 @@
     text-align: center;
 }
 
+.small-inventory-row {
+    display: flex;
+    flex-flow: row;
+}
+
+.text-column {
+    display: flex;
+    flex-flow: column;
+}
 .recommended-holder {
     display: flex;
     flex-flow: row wrap;
-    align-content: center;
+    justify-content: center;
     align-items: center;
     overflow-x: scroll;
-    width: auto;
+    width: 100%;
     height: auto;
     left: 0;
-    margin: 0 25px;
+    margin: 0 25px 50px 25px;
 }
 
 .recommended-wrapper {
@@ -237,9 +287,10 @@
 
 .recommended-header {
     font-family: $serif3;
-    font-size: 35px;
+    font-size: 40px;
     color: $black;
     text-align: center;
+    width: 100%;
 }
 .recommended-column {
     display: flex;
@@ -253,6 +304,80 @@
 .inventory-slider-container {
     width: auto;
     margin: auto;
+}
+
+.item-page {
+    padding-top: 90px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.go-back {
+    position: relative;
+    left: 0;
+    width: 100%;
+    background: $green;
+    z-index: 10;
+    height: auto;
+    padding: 5px 0;
+}
+.back-link {
+    color: $white;
+    font-family: $sans3;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 10px;
+    i {
+        padding-right: 10px;
+    }
+}
+
+.inventory-contact-container {
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+.inventory-contact-header {
+    font-family: $serif3;
+    font-size: 30px;
+    color: $black;
+    margin: 0;
+    padding: 0;
+}
+.inventory-contact-name {
+    font-family: $sans;
+    font-size: 20px;
+    color: $black;
+    margin: 0;
+    padding: 0;
+}
+.inventory-contact-phone {
+    font-family: $sans;
+    font-size: 20px;
+    color: $dark;
+    margin: 0;
+    padding: 0;
+}
+.inventory-location {
+    font-family: $sans;
+    font-size: 20px;
+    color: $dark;
+    margin: 0;
+    padding: 0;
+}
+.separator {
+    width: 90%;
+    margin: 20px auto 30px auto;
+    height: 2px;
+    background: $green;
+}
+
+.category-sort-wrapper {
+    width: 250px;
+    margin-right: 20px;
+    height: auto;
+    border-right: 2px solid $gray;
 }
 
 @media only screen and (max-width: 850px) {

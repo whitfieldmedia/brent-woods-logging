@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-require("dotenv").config();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require("path");
 const port = process.env.PORT || 4000;
 const cors = require('cors');
+
+require("dotenv").config();
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
@@ -24,14 +25,9 @@ app.use('/inventory', (req, res) => {
             res.status(500).send(err);
             throw err;
         }
-        console.log("connected to db")
         var dbo = db.db('inventory')
         dbo.collection('inventory').find({}).toArray((err, result) => {
-            if(err) {
-                res.status(500).send(err)
-                throw err;
-            }
-            console.log("connected to collection", result)
+            if(err) throw err;
             return res.status(200).send(result);
         })
     })

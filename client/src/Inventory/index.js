@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
 import '../assets/scss/inventory.scss';
-import * as loadImage from 'blueimp-load-image';
-import Slider from './Slider';
 import Sort from './Sort';
+import MapResults from './MapResults';
+import { Redirect } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -21,10 +21,10 @@ class Inventory extends React.Component {
     }
     componentDidMount() {
         this.props.getInventory();
+        window.scrollTo(0,0);
         var categories = [];
         var brands = [];
         this.props.inventory.map(item => {
-            console.log(item.category)
             if(!brands.includes(item.brand) && item.brand) {
                 brands.push(item.brand);
             }
@@ -37,39 +37,10 @@ class Inventory extends React.Component {
             category: categories
         })
     }
-    componentDidUpdate() {
-        console.log(this.props)
-    }
-    loadImage = (img, i) => {
-        loadImage(
-            img, 
-            function(img) {
-                document.getElementById(i).appendChild(img);
-            },{
-                maxWidth: 300,
-                maxHeight: 300,
-                canvas: true,
-                orientation: 5
-            }
-        )
-    }
     handleClick = (id) => {
         this.props.addId(id);
-        this.props.isClicked(true);
-    }
-    showRecommended = () => {
-        var category;
-        var count = 0;
-        if(this.props.category.category === 'attachments') {
-            category = 'feller-bunchers'
-        } else {
-            category = this.props.category.category;
-        }
-        return this.props.inventory.filter(item => ((item.category === category) && item._id !== this.props.category.id)).map((item, i) => {
-            while(count < 3) {
-                count = count + 1;
-                return this.mapResults(item, i)
-            }
+        this.setState({
+            isClicked: true
         })
     }
     addComma = (num) => {
@@ -79,67 +50,6 @@ class Inventory extends React.Component {
             return num;
         }
         return;
-    }
-    showItem = () => {
-        return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => {
-            return (
-                <div className="inventory-wrapper" key={item._id}>
-                    <div className="inventory-slider-container">
-                        <Slider images={item.images} itemId={item._id} />
-                    </div>
-                    <div className="inventory-details-container">
-                        <h2 className="inventory-name"> {item.name} </h2>
-                        <p className="inventory-par"> {item.type} </p>
-                        <p className="inventory-price"> ${this.addComma(item.price)} </p>
-                        {item.hours
-                        ?
-                        <p className="inventory-hours"> {this.addComma(item.hours)} hours </p>
-                        : null}
-                        <p className="inventory-par"> {item.description} </p>
-                        <div className="inventory-contact-container">
-                            <h2 className="inventory-contact-header"> Contact </h2>
-                            <p className="inventory-contact-name"> Brent Woods </p>
-                            <p className="inventory-contact-phone"> (662) 123-4567 </p>
-                            <p className="inventory-location"> Grenada Ms </p>
-                        </div>
-                    </div>
-                </div>
-            )
-        })
-    }
-    mapResults = (item, i) => {
-        let rotateImg = true
-        if(item._id === '5d9e44411c9d4400003420e0') {
-            rotateImg = false
-        }
-        var img = item.images[0];
-        return (
-            <div className="small-inventory-wrapper" key={item._id} onClick={() => this.handleClick(item._id)}>
-                <div className="small-inventory-column inventory-image-small-container">
-                    {rotateImg
-                    ?
-                    <div id={item._id} style={{ backgroundImage: `url(${img})` }} className="inventory-image-small" alt={item.name}></div>
-                    :
-                    <div id={item._id} style={{ backgroundImage: `url(${img})` }} className="inventory-image-small-portrait" alt={item.name}> </div> 
-                    }
-                </div>
-                <div className="small-inventory-column inventory-column2">
-                    <h2 className="inventory-small-name"> {item.name} </h2>
-                    <p className="inventory-small-text"> {item.type} </p>
-                    <div className="text-row">
-                        <p className="inventory-small-header"> Price: </p>
-                        <p className="inventory-small-price"> ${this.addComma(item.price)} </p>
-                    </div>
-                    {(item.hours)
-                    ?
-                    <div className="text-row">
-                        <p className="inventory-small-header"> Hours: </p>
-                        <p className="inventory-small-par"> {this.addComma(item.hours)} </p>
-                    </div>
-                    : null}
-                </div>
-            </div>
-        )
     }
     compareValues = (a, b) => {
         var sortBy = this.props.category.sortBy;
@@ -164,8 +74,18 @@ class Inventory extends React.Component {
             if(this.props.category.category !== 'all') {
                 return item.category === this.props.category.category
             } return item.category
-        }).filter(item => { if(this.props.category.brand === 'all') { return item } else if(this.props.category.brand.length > 0 && this.props.category.brand !== 'all') { return item.brand === this.props.category.brand } else { return item }}).sort(this.compareValues).map((item, i) => {
-            return this.mapResults(item, i)
+        }).filter(item => { 
+            if(this.props.category.brand === 'all') { 
+                return item 
+            } else if(this.props.category.brand.length > 0 && this.props.category.brand !== 'all') { 
+                return item.brand === this.props.category.brand 
+            } else { 
+                return item 
+            }
+        }).sort(this.compareValues).map((item, i) => {
+            return (
+                <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={this.handleClick} />
+            )
         })
     } 
     header = () => {
@@ -180,22 +100,21 @@ class Inventory extends React.Component {
     render() {
         console.log(this.props)
         return (
-            this.props.category.isClicked 
+            this.state.isClicked 
             ? 
-            <div className="item-page">
-                {this.showItem()}
-                <h2 className="recommended-header"> Recommended </h2>
-                <div className="recommended-holder">
-                    {this.showRecommended()}
-                </div>
-            </div>
+            <Redirect to="/for-sale" />
             :
-            <div className="category-page">                    
-                <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
-                <div className="inventory-page">
-                    <h1 className="category-header"> {this.header()} For Sale </h1>
-                    {this.showCategory()}
-                </div>
+            <div className="category-page">           
+                <h1 className="category-header"> {this.header()} For Sale </h1>     
+                <p className="location-header">  </p>
+                <div className="category-wrapper">
+                    <div className="category-sort-wrapper">
+                        <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
+                    </div>
+                    <div className="inventory-page">
+                        {this.showCategory()}
+                    </div>
+                </div>    
             </div>
         )
     }
