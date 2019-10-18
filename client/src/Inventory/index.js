@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
-import '../assets/scss/inventory.scss';
+import '../assets/css/inventory.css';
 import Sort from './Sort';
 import MapResults from './MapResults';
 import { Redirect } from 'react-router-dom';

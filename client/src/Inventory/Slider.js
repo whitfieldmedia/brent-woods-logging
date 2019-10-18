@@ -2,7 +2,7 @@ import React from 'react';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 import Slide from './Slide';
-import '../assets/scss/slider.scss';
+import '../assets/css/slider.css';
 
 class Slider extends React.Component {
     constructor(props) {

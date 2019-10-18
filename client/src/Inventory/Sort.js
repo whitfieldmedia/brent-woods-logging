@@ -1,7 +1,7 @@
 import React from 'react';
 import { setBrand, setCategory, setSort } from '../redux/Category';
 import { connect } from 'react-redux';
-import '../assets/scss/sort.scss';
+import '../assets/css/sort.css';
 
 class Sort extends React.Component {
     constructor(props) {

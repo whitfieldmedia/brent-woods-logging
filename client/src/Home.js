@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand, setSort } from './redux/Category';
 import Contact from './Contact';
 import About from './About';
-import './assets/scss/home.scss';
+import './assets/css/home.css';
 
 class Home extends React.Component {
     handleClick = (category) => {
