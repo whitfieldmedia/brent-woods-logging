@@ -11,9 +11,9 @@ require("dotenv").config();
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(morgan('dev'));
-app.use(cors())
+app.use(cors());
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = `mongodb+srv://spencer:${process.env.MongoPassword}@woodslogging-ke6ty.mongodb.net/test?retryWrites=true&w=majority/${process.env.MONGODB_KEY}`
@@ -37,4 +37,4 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"))
 })
 
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`))
