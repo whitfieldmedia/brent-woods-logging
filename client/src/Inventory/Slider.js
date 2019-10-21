@@ -18,7 +18,13 @@ class Slider extends React.Component {
             left: '0',
             top: '0',
             backgroundColor: 'inherit',
-            fullScreen: false
+            fullScreen: false,
+            isSmall: false
+        }
+    }
+    componentDidMount() {
+        if(window.innerWidth <= 600) {
+            this.setState({ isSmall: true })
         }
     }
     goToPrevSlide = () => {
@@ -43,14 +49,15 @@ class Slider extends React.Component {
         }
         this.setState({
             currentIndex: index,
-            translateValue: this.slideWidth() * -index
+            translateValue: this.slideWidth() * -(index)
         })
     }
     slideWidth = () => {
-        if(this.state.fullScreen) {
+        if(this.state.fullScreen || this.state.isSmall) {
             return window.innerWidth;
+        } else {
+            return document.querySelector('.slide').clientWidth
         }
-        return document.querySelector('.slide').clientWidth
     }
     handleFullScreen = () => {
         var top = 0
@@ -77,12 +84,13 @@ class Slider extends React.Component {
             this.setState({
                 fullScreen: false,
                 width: '100vw',
-                height: '133vw',
+                height: 'auto',
                 position: 'relative',
                 zIndex: 0,
                 margin: '0 auto',
                 top: 0,
-                translateValue: window.innerWidth * -(this.state.currentIndex),
+                left: 0,
+                translateValue: (window.innerWidth * -(this.state.currentIndex)),
                 backgroundColor: 'inherit'
             })
         } else {
@@ -116,7 +124,7 @@ class Slider extends React.Component {
             }}>
                 <div className="slider-wrapper" 
                     style={{
-                        maxWidth: '100vw', maxHeight: '133vw',
+                        maxWidth: '600px', maxHeight: '600px',
                         transform: `translateX(${this.state.translateValue}px)`,
                         transition: 'transform ease-out 0.45s'
                 }}>

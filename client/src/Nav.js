@@ -16,11 +16,6 @@ class Nav extends React.Component {
                             Inventory 
                         </Link>
                     </li>
-                    <li className="nav-link-holder">
-                        <Link to="/contact" className="nav-link"> 
-                            Contact 
-                        </Link>
-                    </li>
                 </ul>
             </div>
         )

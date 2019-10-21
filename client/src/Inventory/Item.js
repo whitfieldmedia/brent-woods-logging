@@ -1,14 +1,26 @@
 import React from 'react';
-import Slider from './Slider';
 import Recommended from './Recommended';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
 class Item extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            images: []
+        }
+    }
     componentDidMount() {
         window.scrollTo(0,0)
+        // this.props.inventory.filter(item => item._id === this.props.category.id).map(item => item.images.map(image => {
+        //     return this.setState(prevState => ({
+        //         images: [ ...prevState.images, { src: `${image}`, thumbnail: `${image}`, thumbnailWidth: 331, thumbnailHeight: 180, orientation: 6 } ]
+        //     }))
+        // }))
     }
-    componentDidUpdate(prevProps) {
+    async componentDidUpdate(prevProps) {
         if(prevProps.category.id !== this.props.category.id) {
             window.scrollTo(0,0)
         }
@@ -17,7 +29,14 @@ class Item extends React.Component {
         return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => (
             <div className="inventory-wrapper" key={item._id}>
                 <div className="inventory-slider-container">
-                    <Slider images={item.images} itemId={item._id} />
+                <AwesomeSlider className="awesome-slider" transitionDuration="200ms">
+                    {item.images.map(image => {
+                        console.log(image)
+                    return (
+                        <div data-src={image} style={{transform: 'rotate(90deg)'}} key={image} />
+                    )})}
+                </AwesomeSlider>
+                    {/* <Slider images={item.images} itemId={item._id} /> */}
                 </div>
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>
@@ -48,7 +67,7 @@ class Item extends React.Component {
         return;
     }
     render() {
-        console.log("ITEM", this.props)
+        console.log("ITEM", this.state)
         return (
             <div className="item-page">
                 <div className="go-back">

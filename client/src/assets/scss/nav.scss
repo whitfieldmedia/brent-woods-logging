@@ -14,6 +14,7 @@
     left: 0;
     z-index: 10;
     border-bottom: 2px solid $gray;
+    overflow-x: hidden;
 }
 .nav-header-link {
     text-decoration: none;

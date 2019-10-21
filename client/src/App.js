@@ -6,11 +6,11 @@ import Inventory from './Inventory';
 import Contact from './Contact';
 import Item from './Inventory/Item';
 import { Switch, Route } from 'react-router-dom';
-import './assets/scss/styles.scss';
+import './assets/css/styles.css';
 
 export default function App(){
     return (
-        <div>
+        <div className="app-page">
             <Nav />
             <Switch>
                 <Route exact path="/" component={Home} />

@@ -13,6 +13,7 @@
   left: 0;
   z-index: 10;
   border-bottom: 2px solid #D7D0c8;
+  overflow-x: hidden;
 }
 
 .nav-header-link {

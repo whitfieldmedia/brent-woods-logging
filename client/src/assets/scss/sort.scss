@@ -110,6 +110,7 @@
         font-size: 20px;
         color: $black;
         padding: 15px 5px;
+        background: $grey;
     }
     .sort-wrapper-show {
         list-style-type: none;
@@ -125,7 +126,7 @@
         border-top: 1px solid $dark;
         position: relative;
         z-index: 100;
-        bottom: 50px;
+        bottom: 0px;
     }
     .sort-column {
         display: flex;

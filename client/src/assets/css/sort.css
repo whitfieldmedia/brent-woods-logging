@@ -113,6 +113,7 @@
     font-size: 20px;
     color: #3a3a3a;
     padding: 15px 5px;
+    background: #e8e8e8;
   }
 
   .sort-wrapper-show {
@@ -129,7 +130,7 @@
     border-top: 1px solid #454839;
     position: relative;
     z-index: 100;
-    bottom: 50px;
+    bottom: 0px;
   }
 
   .sort-column {

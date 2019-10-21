@@ -106,7 +106,6 @@ class Inventory extends React.Component {
             :
             <div className="category-page">           
                 <h1 className="category-header"> {this.header()} For Sale </h1>     
-                <p className="location-header">  </p>
                 <div className="category-wrapper">
                     <div className="category-sort-wrapper">
                         <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
