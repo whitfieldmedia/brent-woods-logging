@@ -427,12 +427,16 @@
   max-height: 500px;
   max-width: 600px;
   min-width: 300px;
+  min-height: 300px;
   height: auto;
   width: auto;
+  display: block;
+  position: relative;
 }
 
 .carousel-image {
   transform: rotate(90deg);
+  width: 100vw;
 }
 
 @media only screen and (max-width: 1475px) {

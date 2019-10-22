@@ -64,6 +64,7 @@
   width: 175px;
   margin: 10px;
   height: auto;
+  text-decoration: none;
 }
 
 .home-inventory-name {
@@ -71,6 +72,7 @@
   font-size: 18px;
   color: #454839;
   text-align: center;
+  text-decoration: none;
 }
 
 .home-inventory-icon {
