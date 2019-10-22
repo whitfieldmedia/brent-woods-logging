@@ -31,13 +31,6 @@ class Item extends React.Component {
                             <img src={image} key={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image} />
                         ))}
                     </AliceCarousel>
-                    {/* <Carousel infiniteLoop={true} className="carousel">
-                        {item.images.map(image => (
-                            <div key={image}>
-                                <img src={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image}/>
-                            </div>
-                        ))}
-                    </Carousel> */}
                 </div>
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>
