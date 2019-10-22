@@ -426,8 +426,6 @@
 .carousel {
   max-height: 500px;
   max-width: 600px;
-  min-width: 300px;
-  min-height: 300px;
   height: auto;
   width: auto;
   display: block;

@@ -2,8 +2,6 @@ import React from 'react';
 import Recommended from './Recommended';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
