@@ -24,7 +24,7 @@ class Item extends React.Component {
         return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => (
             <div className="inventory-wrapper" key={item._id}>
                 <div className="inventory-slider-container">
-                    <AliceCarousel className="carousel" stagePadding={{ paddingLeft: 10, paddingRight: 10 }}>
+                    <AliceCarousel className="carousel" stagePadding={{ paddingLeft: 10, paddingRight: 10 }} responsive={{items: 1}}>
                         {item.images.map(image => (
                             <img src={image} key={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image} />
                         ))}
