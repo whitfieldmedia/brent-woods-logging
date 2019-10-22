@@ -423,6 +423,18 @@
   border-right: 2px solid #D7D0c8;
 }
 
+.carousel {
+  max-height: 500px;
+  max-width: 600px;
+  min-width: 300px;
+  height: auto;
+  width: auto;
+}
+
+.carousel-image {
+  transform: rotate(90deg);
+}
+
 @media only screen and (max-width: 1475px) {
   .inventory-details-container {
     max-width: 600px;
@@ -555,6 +567,11 @@
     height: auto;
     justify-content: center;
     align-items: center;
+  }
+
+  .recommended-holder {
+    flex-flow: column;
+    margin: 0 auto 50px auto;
   }
 }
 
