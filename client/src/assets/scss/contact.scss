@@ -66,3 +66,24 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+@media only screen and (max-width: 550px) {
+    .contact-header {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .contact-phone {
+        font-size: 18px;
+    }
+    .contact-par {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 315px) {
+    .contact-section {
+        min-width: 280px;
+    }
+}

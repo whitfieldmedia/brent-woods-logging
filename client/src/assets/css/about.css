@@ -25,4 +25,20 @@
   color: #454839;
 }
 
+@media only screen and (max-width: 550px) {
+  .about-header {
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .about-par {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 315px) {
+  .about-section {
+    min-width: 280px;
+  }
+}
+
 /*# sourceMappingURL=about.css.map */

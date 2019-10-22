@@ -4,6 +4,17 @@ import logo from './assets/icons/logo3.svg';
 import './assets/css/nav.css';
 
 class Nav extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            isClicked: false
+        }
+    }
+    handleClick = () => {
+        return this.setState({
+            isClicked: !this.state.isClicked
+        })
+    }
     render() {
         return (
             <div className="navbar-container">
@@ -11,6 +22,11 @@ class Nav extends React.Component {
                     <img src={logo} className="nav-header-logo" alt="Woods Logging"/>
                 </Link>
                 <ul className="navbar">
+                    <li className="nav-link-holder">
+                        <Link to="/" className="nav-link">
+                            Home
+                        </Link>
+                    </li>
                     <li className="nav-link-holder">
                         <Link to="/shop-inventory" className="nav-link"> 
                             Inventory 

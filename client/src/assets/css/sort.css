@@ -98,6 +98,7 @@
     overflow: visible;
     align-content: flex-end;
     align-items: flex-end;
+    justify-content: space-evenly;
   }
 
   .sort-wrapper {
@@ -137,6 +138,24 @@
     display: flex;
     flex-flow: column-reverse;
     width: 100%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .sort-header {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .check-box {
+    width: 14px;
+    height: 14px;
+  }
+
+  .center-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f7f7f7;
   }
 }
 

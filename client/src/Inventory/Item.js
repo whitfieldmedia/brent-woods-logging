@@ -2,10 +2,8 @@ import React from 'react';
 import Recommended from './Recommended';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AwesomeSlider from 'react-awesome-slider';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import 'react-awesome-slider/dist/styles.css';
 
 class Item extends React.Component {
     constructor() {
@@ -16,11 +14,6 @@ class Item extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0,0)
-        // this.props.inventory.filter(item => item._id === this.props.category.id).map(item => item.images.map(image => {
-        //     return this.setState(prevState => ({
-        //         images: [ ...prevState.images, { src: `${image}`, thumbnail: `${image}`, thumbnailWidth: 331, thumbnailHeight: 180, orientation: 6 } ]
-        //     }))
-        // }))
     }
     async componentDidUpdate(prevProps) {
         if(prevProps.category.id !== this.props.category.id) {
@@ -38,14 +31,6 @@ class Item extends React.Component {
                             </div>
                         ))}
                     </Carousel>
-                {/* <AwesomeSlider className="awesome-slider" transitionDuration="200ms">
-                    {item.images.map(image => {
-                        console.log(image)
-                    return (
-                        <div data-src={image} style={{transform: 'rotate(90deg)'}} key={image} />
-                    )})}
-                </AwesomeSlider> */}
-                    {/* <Slider images={item.images} itemId={item._id} /> */}
                 </div>
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>

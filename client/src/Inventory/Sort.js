@@ -13,7 +13,7 @@ class Sort extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.state.sortClicked || this.state.ategoryClicked || this.state.brandClicked) {
+        if(this.state.sortClicked || this.state.categoryClicked || this.state.brandClicked) {
             this.setState({
                 sortClicked: false,
                 categoryClicked: false,

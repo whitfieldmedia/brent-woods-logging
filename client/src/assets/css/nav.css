@@ -20,17 +20,8 @@
   text-decoration: none;
 }
 
-.nav-header {
-  font-family: "Spectral", serif;
-  font-size: 30px;
-  color: #3a3a3a;
-  margin: 0 0 0 25px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
 .nav-header-logo {
-  margin-left: 25px;
+  margin: 0 0 0 25px;
   height: 80px;
   padding-top: 5px;
 }
@@ -55,6 +46,42 @@
   font-size: 20px;
   color: #454839;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 455px) {
+  .navbar {
+    flex-flow: column;
+    position: relative;
+    z-index: 15;
+    margin: 0 10px 0 0;
+  }
+
+  .navbar-closed {
+    display: none;
+  }
+
+  .nav-bar-container {
+    justify-content: space-between;
+    align-items: space-evenly;
+    overflow-y: hidden;
+  }
+
+  .nav-header-logo {
+    margin: 0 0 0 20px;
+  }
+
+  .nav-link {
+    text-align: center;
+  }
+
+  .nav-link-holder {
+    margin: 0 8px;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .nav-link-holder {
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=nav.css.map */
