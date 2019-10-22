@@ -12,8 +12,8 @@ class Contact extends React.Component {
                 <div className="contact-row">
                     <div className="contact-column">
                         <p className="contact-phone"><strong> Brent Woods </strong></p>
-                        <p className="contact-phone"> (662) 283-4852 </p>
-                        <p className="contact-phone"> brent@woodsloggingsales.com </p>
+                        <p className="contact-phone"> (662) 229-7785 </p>
+                        <p className="contact-phone"> woodsforest@bellsouth.net </p>
                     </div>
                 </div>
 
