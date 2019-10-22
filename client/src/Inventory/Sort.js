@@ -23,12 +23,27 @@ class Sort extends React.Component {
     }
     sortByBrand = (brand) => {
         this.props.setBrand(brand)
+        this.setState({
+            brandClicked: false,
+            categoryClicked: false,
+            sortClicked: false
+        })
     }
     sortByCategory = (category) => {
         this.props.setCategory(category)
+        this.setState({
+            brandClicked: false,
+            categoryClicked: false,
+            sortClicked: false
+        })
     }
     handleSort = (sortBy) => {
         this.props.setSort(sortBy)
+        this.setState({
+            brandClicked: false,
+            categoryClicked: false,
+            sortClicked: false
+        })
     }
     handleSortClick = () => {
         if(window.innerWidth > 850) {
@@ -52,6 +67,13 @@ class Sort extends React.Component {
         }
         this.setState({
             brandClicked: !this.state.brandClicked
+        })
+    }
+    handleClose = () => {
+        this.setState({
+            brandClicked: false,
+            categoryClicked: false,
+            sortClicked: false
         })
     }
     render() {
