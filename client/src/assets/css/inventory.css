@@ -440,6 +440,11 @@
   height: 100%;
 }
 
+.carousel-image-noflip {
+  width: 100%;
+  height: 100%;
+}
+
 @media only screen and (max-width: 1475px) {
   .inventory-details-container {
     max-width: 600px;
