@@ -517,12 +517,12 @@
         max-width: 90vw;
     }
     .inventory-slider-container {
-        width: 100vw;
-        height: auto;
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .awesome-slider {
-        width: 100vw;
-        height: auto;
+    .carousel {
+        width: 100%;
     }
     .small-inventory-column {
         width: 90vw;
