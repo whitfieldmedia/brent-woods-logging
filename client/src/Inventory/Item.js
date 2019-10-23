@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+import ExifOrientationImg from 'react-exif-orientation-img';
 
 class Item extends React.Component {
     constructor() {
@@ -24,9 +25,9 @@ class Item extends React.Component {
         return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => (
             <div className="inventory-wrapper" key={item._id}>
                 <div className="inventory-slider-container">
-                    <AliceCarousel className="carousel" stagePadding={{ paddingLeft: 10, paddingRight: 10 }} responsive={{items: 1}}>
+                    <AliceCarousel className="carousel" autoHeight={true}>
                         {item.images.map(image => (
-                            <img src={image} key={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image} />
+                            <ExifOrientationImg src={image} key={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image} />
                         ))}
                     </AliceCarousel>
                 </div>
@@ -42,7 +43,7 @@ class Item extends React.Component {
                     <div className="inventory-contact-container">
                         <h2 className="inventory-contact-header"> Contact </h2>
                         <p className="inventory-contact-name"> Brent Woods </p>
-                        <p className="inventory-contact-phone"> (662) 123-4567 </p>
+                        <p className="inventory-contact-phone"> (662) 229-7785 </p>
                         <p className="inventory-location"> Grenada, Ms </p>
                     </div>
                 </div>
