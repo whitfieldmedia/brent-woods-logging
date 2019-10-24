@@ -42,7 +42,8 @@ class Item extends React.Component {
                     <div className="inventory-contact-container">
                         <h2 className="inventory-contact-header"> Contact </h2>
                         <p className="inventory-contact-name"> Brent Woods </p>
-                        <p className="inventory-contact-phone"> (662) 229-7785 </p>
+                        <a className="inventory-contact-phone" href="tel:6622297785"> (662) 229-7785 </a>
+                        <p className="inventory-contact-email"> woodsforest@bellsouth.net </p>
                         <p className="inventory-location"> Grenada, Ms </p>
                     </div>
                 </div>

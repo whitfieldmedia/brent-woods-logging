@@ -339,8 +339,16 @@
 }
 .inventory-contact-name {
     font-family: $sans;
-    font-size: 20px;
+    font-size: 24px;
     color: $black;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+.inventory-contact-email {
+    font-family: $sans;
+    font-size: 20px;
+    color: $dark;
     margin: 0;
     padding: 0;
 }
@@ -350,7 +358,12 @@
     color: $dark;
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
+.inventory-contact-phone:hover {
+    color: $blue;
+}
+
 .inventory-location {
     font-family: $sans;
     font-size: 20px;
