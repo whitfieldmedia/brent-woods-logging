@@ -3,6 +3,7 @@
 .navbar-container {
     width: 100vw;
     height: auto;
+    min-height: 80px;
     margin: 0;
     background: $white;
     display: flex;
@@ -18,6 +19,12 @@
 }
 .nav-header-link {
     text-decoration: none;
+}
+.nav-header {
+    font-size: 30px;
+    color: $green;
+    font-family: $serif3;
+    margin-left: 15px;
 }
 
 .nav-header-logo {
@@ -47,6 +54,17 @@
     text-decoration: none;
 }
 
+@media only screen and (max-width: 600px) {
+    .nav-header {
+        font-size: 25px;
+        width: 200px;
+        text-align: center;
+        line-height: 25px;
+        margin: 0 0 0 10px;
+        padding: 0;
+    }
+}
+
 @media only screen and (max-width: 455px) {
     .navbar {
         flex-flow: column;
@@ -57,7 +75,7 @@
     .navbar-closed {
         display: none;
     }
-    .nav-bar-container {
+    .navbar-container {
         justify-content: space-between;
         align-items: space-evenly;
         overflow-y: hidden;
@@ -73,8 +91,24 @@
     }
 }
 
+@media only screen and (max-width: 375px) {
+    .navbar {
+        padding: 0;
+        margin-right: 5px;
+    }
+    .nav-header {
+        margin-left: 5px;
+    }
+}
+
 @media only screen and (max-width: 330px) {
     .nav-link-holder {
         margin: 0;
+    }
+    .nav-header {
+        font-size: 22px;
+    }
+    .nav-link {
+        font-size: 18px;
     }
 }

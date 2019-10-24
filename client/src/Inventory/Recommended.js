@@ -8,7 +8,7 @@ class Recommended extends React.Component {
         var category;
         var count = 0;
         if(this.props.category.category === 'attachments') {
-            category = 'feller-bunchers'
+            category = 'feller-bunchers';
         } else {
             this.props.inventory.filter(item => item._id === this.props.category.id).map(item => category = item.category)
         }
