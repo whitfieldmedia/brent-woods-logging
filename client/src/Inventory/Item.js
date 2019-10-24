@@ -3,16 +3,11 @@ import Recommended from './Recommended';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
-import ExifOrientationImg from 'react-exif-orientation-img';
+// import "react-alice-carousel/lib/alice-carousel.css";
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
 
 class Item extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            images: []
-        }
-    }
     componentDidMount() {
         window.scrollTo(0,0)
     }
@@ -22,15 +17,27 @@ class Item extends React.Component {
         }
     }
     mapItem = () => {
-        return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => (
+        return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => {
+            const length = item.images.length
+            console.log(length)
+            var images = []
+            item.images.map(image => {
+                return images.push({
+                    original: `${image}`,
+                    thumbnail: `${image}`
+                })
+            })
+            return (
             <div className="inventory-wrapper" key={item._id}>
                 <div className="inventory-slider-container">
-                    <AliceCarousel className="carousel" autoHeight={true}>
-                        {item.images.map(image => (
-                            <ExifOrientationImg src={image} key={image} className={item._id === '5d9e44411c9d4400003420e0' ? "carousel-image-noflip" : "carousel-image"} alt={image} />
-                        ))}
-                    </AliceCarousel>
+                    <ImageGallery items={images} additionalClass="carousel" showFullscreenButton={false} showPlayButton={false} />
                 </div>
+
+                    {/* <AliceCarousel className="carousel">
+                        {item.images.map(image => (
+                            <img src={image} key={item.name} className="carousel-image" alt={item.name} />
+                        ))}
+                    </AliceCarousel> */}
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>
                     <p className="inventory-par"> {item.type} </p>
@@ -48,7 +55,7 @@ class Item extends React.Component {
                     </div>
                 </div>
             </div>
-            )
+            )}
         )
     }
     addComma = (num) => {
@@ -60,7 +67,6 @@ class Item extends React.Component {
         return;
     }
     render() {
-        console.log("ITEM", this.state)
         return (
             <div className="item-page">
                 <div className="go-back">
