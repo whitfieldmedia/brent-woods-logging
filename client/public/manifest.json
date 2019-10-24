@@ -8,13 +8,13 @@
       "type": "image/png"
     },
     {
-      "src": "favicon.svg",
-      "type": "image/svg",
+      "src": "favicon.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.svg",
-      "type": "image/svg",
+      "src": "favicon.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
