@@ -2,8 +2,6 @@ import React from 'react';
 import Recommended from './Recommended';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AliceCarousel from 'react-alice-carousel';
-// import "react-alice-carousel/lib/alice-carousel.css";
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 
@@ -32,12 +30,6 @@ class Item extends React.Component {
                 <div className="inventory-slider-container">
                     <ImageGallery items={images} additionalClass="carousel" showFullscreenButton={false} showPlayButton={false} />
                 </div>
-
-                    {/* <AliceCarousel className="carousel">
-                        {item.images.map(image => (
-                            <img src={image} key={item.name} className="carousel-image" alt={item.name} />
-                        ))}
-                    </AliceCarousel> */}
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>
                     <p className="inventory-par"> {item.type} </p>
