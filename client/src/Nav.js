@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './assets/images/woods_logo.png';
 import { Link } from 'react-router-dom';
 import './assets/scss/nav.scss';
 
@@ -17,8 +18,8 @@ class Nav extends React.Component {
     render() {
         return (
             <div className="navbar-container">
-                <Link to="/" className="nav-header-link"> 
-                    <h1 className="nav-header"> Woods Logging Sales </h1>
+                <Link to="/" className="nav-header-link" id="nav-logo-wrapper"> 
+                    <img src={logo} className="nav-header-logo" alt="Brent Woods Logging"/>
                 </Link>
                 <ul className="navbar">
                     <li className="nav-link-holder">

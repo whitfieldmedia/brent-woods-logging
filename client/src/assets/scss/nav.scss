@@ -2,10 +2,8 @@
 
 .navbar-container {
     width: 100vw;
-    height: auto;
-    min-height: 80px;
+    height: 90px;
     margin: 0;
-    background: $white;
     display: flex;
     flex-flow: row;
     align-content: center;
@@ -14,8 +12,9 @@
     top: 0;
     left: 0;
     z-index: 10;
-    border-bottom: 2px solid $gray;
+    border-bottom: 2px solid $green2;
     overflow-x: hidden;
+    background-color: $white;
 }
 .nav-header-link {
     text-decoration: none;
@@ -26,11 +25,11 @@
     font-family: $serif3;
     margin-left: 15px;
 }
-
 .nav-header-logo {
-    margin: 0 0 0 25px;
-    height: 80px;
-    padding-top: 5px;
+    margin: 2px 0 2px 20px;
+    padding: 0;
+    height: 90px;
+    width: auto;
 }
 
 .navbar {
