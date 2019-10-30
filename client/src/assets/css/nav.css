@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya:400,500,700|Exo+2:400,500,600|Frank+Ruhl+Libre:400,500,700|Nunito:400,600,700|Poppins:300,400,500,600,700|Spectral:400,500,600&display=swap");
 .navbar-container {
   width: 100vw;
-  height: 90px;
+  height: 100px;
   margin: 0;
   display: flex;
   flex-flow: row;
@@ -13,7 +13,7 @@
   z-index: 10;
   border-bottom: 2px solid #0B7703;
   overflow-x: hidden;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
 }
 
 .nav-header-link {
@@ -28,9 +28,9 @@
 }
 
 .nav-header-logo {
-  margin: 2px 0 2px 20px;
+  margin: 0 0 0 20px;
   padding: 0;
-  height: 90px;
+  height: 95px;
   width: auto;
 }
 

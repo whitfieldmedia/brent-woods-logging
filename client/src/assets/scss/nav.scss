@@ -2,7 +2,7 @@
 
 .navbar-container {
     width: 100vw;
-    height: 90px;
+    height: 100px;
     margin: 0;
     display: flex;
     flex-flow: row;
@@ -14,7 +14,7 @@
     z-index: 10;
     border-bottom: 2px solid $green2;
     overflow-x: hidden;
-    background-color: $white;
+    background-color: #ffffff;
 }
 .nav-header-link {
     text-decoration: none;
@@ -26,9 +26,9 @@
     margin-left: 15px;
 }
 .nav-header-logo {
-    margin: 2px 0 2px 20px;
+    margin: 0 0 0 20px;
     padding: 0;
-    height: 90px;
+    height: 95px;
     width: auto;
 }
 
