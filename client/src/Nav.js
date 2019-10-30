@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './assets/icons/brent_woods_logo.png';
+import logo from './assets/icons/woods_logo.png';
 import { Link } from 'react-router-dom';
 import './assets/scss/nav.scss';
 
