@@ -7,7 +7,7 @@ class Recommended extends React.Component {
     showRecommended = () => {
         var category;
         var count = 0;
-        if(this.props.category.category === 'attachments') {
+        if(this.props.category.category === 'attachments' || this.props.category.category === 'forklifts') {
             category = 'feller-bunchers';
         } else {
             this.props.inventory.filter(item => item._id === this.props.category.id).map(item => category = item.category)

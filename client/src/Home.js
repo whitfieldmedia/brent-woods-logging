@@ -6,6 +6,7 @@ import skidder from './assets/icons/skidder.svg';
 import logTrailer from './assets/icons/log-trailer.svg';
 import attachments from './assets/icons/attachments.svg';
 import dozer from './assets/icons/dozer.svg';
+import forklift from './assets/icons/forklift-truck.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand, setSort } from './redux/Category';
@@ -53,8 +54,12 @@ class Home extends React.Component {
                                 <p className="home-inventory-name"> Dozers </p>
                             </Link>
                             <Link to="/shop-inventory" className="home-inventory-holder" onClick={() => this.handleClick('attachments')}>
-                                <img src={attachments} className="home-inventory-icon" alt="Attachments"/>
+                                <img src={attachments} className="home-inventory-icon" alt="Attachments" />
                                 <p className="home-inventory-name"> Attachments </p>
+                            </Link>
+                            <Link to="/shop-inventory" className="home-inventory-holder" onClick={() => this.handleClick('forklifts')}>
+                                <img src={forklift} className="home-inventory-icon" alt="Forklift" />
+                                <p className="home-inventory-name"> Forklifts </p>
                             </Link>
                         </div>
                     </div>
