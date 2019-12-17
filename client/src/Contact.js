@@ -17,7 +17,6 @@ class Contact extends React.Component {
                         <p className="contact-address"> 1901 U.S. 51, Grenada, Ms 38901 </p>
                     </div>
                 </div>
-
             </div> 
         )
     }
