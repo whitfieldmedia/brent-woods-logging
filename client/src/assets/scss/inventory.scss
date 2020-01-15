@@ -168,7 +168,7 @@
 }
 
 .inventory-wrapper {
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
     flex-flow: row wrap;
@@ -296,11 +296,15 @@
 
 .inventory-slider-container {
     height: auto;
-    max-width: 550px;
-    margin: auto auto 25px auto;
+    max-width: 600px;
+    margin: auto 50px 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.carousel {
+    max-width: 500px;
+    object-fit: contain;
 }
 
 .item-page {
@@ -389,12 +393,7 @@
     height: auto;
     border-right: 2px solid $gray;
 }
-.carousel {
-    max-width: 500px;
-    max-height: 600px;
-    height: 600px;
-    width: 400px;
-}
+
 .image-gallery-slide {
     img {
         width: auto;
@@ -450,7 +449,14 @@
         max-width: 450px;
     }
 }
-
+@media only screen and (max-width: 999px) {
+    .inventory-slider-container {
+        width: 100%;
+    }
+    .inventory-slider-container {
+        margin: auto auto 75px auto;
+    }
+}
 @media only screen and (max-width: 900px) {
     .inventory-wrapper {
         flex-flow: column;

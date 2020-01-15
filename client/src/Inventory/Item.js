@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addId } from '../redux/Category';
 import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/scss/image-gallery.scss';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 class Item extends React.Component {
     constructor() {
@@ -36,7 +36,7 @@ class Item extends React.Component {
             return (
             <div className="inventory-wrapper" key={item._id}>
                 <div className="inventory-slider-container">
-                    <ImageGallery items={images} additionalClass="carousel" showFullscreenButton={false} showPlayButton={false} />
+                    <ImageGallery items={images} lazyLoad={true} additionalClass="carousel" showFullscreenButton={false} showPlayButton={false} />
                 </div>
                 <div className="inventory-details-container">
                     <h2 className="inventory-name"> {item.name} </h2>

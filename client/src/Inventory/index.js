@@ -110,11 +110,9 @@ class Inventory extends React.Component {
         console.log(this.props.category.id)
         return (
             <div className="inventory-page">
-            <Switch>
-                <Route to="/:name">
-                    <Item />
-                </Route>
-            </Switch>
+            <Route to="/:name">
+                <Item />
+            </Route>
             <div className="category-page">           
                 <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                 <div className="category-wrapper">
