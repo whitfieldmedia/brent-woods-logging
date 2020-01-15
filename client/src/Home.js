@@ -19,20 +19,6 @@ class Home extends React.Component {
     componentDidMount() {
         this.props.getInventory();
         window.scrollTo(0,0);
-        var categories = [];
-        var brands = [];
-        this.props.inventory.map(item => {
-            if(!brands.includes(item.brand) && item.brand) {
-                brands.push(item.brand);
-            }
-            if(!categories.includes(item.category) && item.category) {
-                categories.push(item.category)
-            }
-        })
-        this.setState({
-            brands: brands,
-            category: categories,
-        })
     }
     handleClick = (category) => {
         this.props.setCategory(category);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addId } from '../redux/Category';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -86,4 +86,4 @@ class Item extends React.Component {
     }
 }
 
-export default withRouter(connect(state => state, { addId })(Item));
+export default connect(state => state, { addId })(Item);

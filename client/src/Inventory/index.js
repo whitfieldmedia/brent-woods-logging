@@ -6,7 +6,7 @@ import '../assets/scss/inventory.scss';
 import Sort from './Sort';
 import Item from './Item';
 import MapResults from './MapResults';
-import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -23,11 +23,41 @@ class Inventory extends React.Component {
         }
     }
     componentDidMount() {
-        console.log(this.props.match.params)
-        console.log(this.props)
+        if(this.props.category.id) {
+            this.setState({
+                useParams: true
+            })
+        }
         window.scrollTo(0,0);
+        var categories = [];
+        var brands = [];
+        this.props.inventory.map(item => {
+            if(!brands.includes(item.brand) && item.brand) {
+                brands.push(item.brand);
+            }
+            if(!categories.includes(item.category) && item.category) {
+                categories.push(item.category)
+            }
+        })
+        this.setState({
+            brands: brands,
+            category: categories
+        })
     }
     componentDidUpdate(prevProps) {
+        if(this.props.history.location.pathname !== "/inventory") {
+            const name = this.props.history.location.pathname.split('/').slice(-1)[0]
+            if(!this.state.useParams) {
+                this.setState({
+                    useParams: true
+                })
+            }
+            return this.props.inventory.filter(item => item.name === name)
+        } else if (this.state.useParams) {
+            this.setState({
+                useParams: false
+            })
+        }
         if(this.props.match.params.length > 0 && !this.state.useParams && prevProps.match.params !== this.props.match.params) {
             this.setState({
                 useParams: true
@@ -95,7 +125,8 @@ class Inventory extends React.Component {
         })
     } 
     showHeader = () => {
-        if(this.props.category.category !== 'all') {
+        if(this.props.category.category !== 'all' && this.props.category.category.length > 1) {
+            console.log(this.props.category.category)
             return this.props.category.category.split('-').join(' ')
         } else {
             return "All Inventory"
@@ -103,10 +134,10 @@ class Inventory extends React.Component {
     }
     render() {
         return (
-            this.props.category.id.length > 1 
+            <div className="inventory-page">
+            {this.state.useParams
                 ?  <Item />
                 :
-                <div className="inventory-page">
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
@@ -118,10 +149,11 @@ class Inventory extends React.Component {
                         </div>
                     </div>    
                 </div>
+                }
             </div>
 
         )
     }
 }
 
-export default withRouter(connect(state => state, { setCategory, addId, isClicked, setBrand, getInventory })(Inventory));
+export default connect(state => state, { setCategory, addId, isClicked, setBrand, getInventory })(Inventory);

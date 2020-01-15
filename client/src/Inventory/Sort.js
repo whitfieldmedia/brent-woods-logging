@@ -127,10 +127,10 @@ class Sort extends React.Component {
                             View All 
                         </li>
                         {this.props.allCategories.map(type => (
-                            <Link className="sort-item" to={`/inventory/${type}`} onClick={() => this.sortByCategory(type)} key={type}>
+                            <li className="sort-item" onClick={() => this.sortByCategory(type)} key={type}>
                                 <span className={(this.props.category.category === type) ? 'check-box check-box-clicked' : 'check-box'}><i className="fas fa-check fa-xs"></i></span>
                                 {type} 
-                            </Link>
+                            </li>
                         ))}
                     </ul>
                 </div>
