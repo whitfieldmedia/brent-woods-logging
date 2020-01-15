@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addId } from '../redux/Category';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -23,6 +23,7 @@ class Item extends React.Component {
     }
     handleClick = () => {
         this.props.addId('');
+        console.log(this.props.category.id)
     }
     mapItem = () => {
         return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => {
@@ -73,10 +74,10 @@ class Item extends React.Component {
             ?
             <div className="item-page">
                 <div className="go-back">
-                    <div onClick={this.handleClick} className="back-link">
+                    <Link to="/inventory" onClick={this.handleClick} className="back-link">
                         <i className="fas fa-chevron-left fa-sm"></i>  
                         Back To Inventory
-                    </div>
+                    </Link>
                 </div>
                 {this.mapItem()}
             </div>

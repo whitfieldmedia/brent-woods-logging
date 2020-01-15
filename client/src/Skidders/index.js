@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
 import '../assets/scss/inventory.scss';
-import Sort from './Sort';
-import Item from './Item';
+import Sort from '../Sort';
+import Item from '../Inventory/Item';
 import MapResults from './MapResults';
-import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -15,29 +15,13 @@ class Inventory extends React.Component {
             id: '',
             clicked: false,
             count: 0,
-            recommendedImages: [],
-            brands: [],
-            category: [],
-            name: '',
-            useParams: false
-        }
-    }
-    componentDidMount() {
-        console.log(this.props.match.params)
-        console.log(this.props)
-        window.scrollTo(0,0);
-    }
-    componentDidUpdate(prevProps) {
-        if(this.props.match.params.length > 0 && !this.state.useParams && prevProps.match.params !== this.props.match.params) {
-            this.setState({
-                useParams: true
-            })
+            name: ''
         }
     }
     handleClick = (id, name) => {
         this.props.addId(id);
         this.setState({
-            isClicked: true
+            isClicked: true,
         })
     }
     addComma = (num) => {
@@ -87,7 +71,7 @@ class Inventory extends React.Component {
             var name = item.name.split(' ').join('-')
             return (
                 <div className="inventory-link-container" key={item._id}>
-                    <Link className="inventory-link" to={`/inventory/${name}`}>
+                    <Link className="inventory-link" to={`/inventory/${item.category}/${name}`}>
                         <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
                     </Link>
                 </div>
@@ -102,26 +86,26 @@ class Inventory extends React.Component {
         }
     }
     render() {
+        console.log(this.props.category.id)
         return (
-            this.props.category.id.length > 1 
-                ?  <Item />
-                :
-                <div className="inventory-page">
-                <div className="category-page">           
-                    <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
-                    <div className="category-wrapper">
-                        <div className="category-sort-wrapper">
-                            <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
-                        </div>
-                        <div className="inventory-page">
-                            {this.showCategory()}
-                        </div>
-                    </div>    
-                </div>
+            <div className="inventory-page">
+            <Route to="/:name">
+                <Item />
+            </Route>
+            <div className="category-page">           
+                <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
+                <div className="category-wrapper">
+                    <div className="category-sort-wrapper">
+                        <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
+                    </div>
+                    <div className="inventory-page">
+                        {this.showCategory()}
+                    </div>
+                </div>    
             </div>
-
+            </div>
         )
     }
 }
 
-export default withRouter(connect(state => state, { setCategory, addId, isClicked, setBrand, getInventory })(Inventory));
+export default connect(state => state, { setCategory, addId, isClicked, setBrand, getInventory })(Inventory);

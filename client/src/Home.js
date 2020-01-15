@@ -10,11 +10,30 @@ import forklift from './assets/icons/forklift-truck.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand, setSort } from './redux/Category';
+import { getInventory } from './redux/Inventory';
 import Contact from './Contact';
 import About from './About';
-import './assets/css/home.css';
+import './assets/scss/home.scss';
 
 class Home extends React.Component {
+    componentDidMount() {
+        this.props.getInventory();
+        window.scrollTo(0,0);
+        var categories = [];
+        var brands = [];
+        this.props.inventory.map(item => {
+            if(!brands.includes(item.brand) && item.brand) {
+                brands.push(item.brand);
+            }
+            if(!categories.includes(item.category) && item.category) {
+                categories.push(item.category)
+            }
+        })
+        this.setState({
+            brands: brands,
+            category: categories,
+        })
+    }
     handleClick = (category) => {
         this.props.setCategory(category);
         this.props.addId('');
@@ -29,35 +48,35 @@ class Home extends React.Component {
                     <div className="home-inventory-section">
                         <h2 className="header2"> Logging Equipment For Sale </h2>
                         <div className="home-inventory-container">
-                            <Link to="/inventory/feller-bunchers" className="home-inventory-holder" onClick={() => this.handleClick('feller-bunchers')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('feller-bunchers')}>
                                 <img src={feller} className="home-inventory-icon" alt="Feller Bunchers"/>
                                 <p className="home-inventory-name"> Feller Bunchers </p>
                             </Link>
-                            <Link to="/inventory/skidders" className="home-inventory-holder" onClick={() => this.handleClick('skidders')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('skidders')}>
                                 <img src={skidder} className="home-inventory-icon" alt="Skidders" />
                                 <p className="home-inventory-name"> Skidders </p>
                             </Link>
-                            <Link to="/inventory/log-loaders" className="home-inventory-holder" onClick={() => this.handleClick('log-loaders')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('log-loaders')}>
                                 <img src={loader} className="home-inventory-icon" alt="Loaders" />
                                 <p className="home-inventory-name"> Loaders </p>
                             </Link>
-                            <Link to="/inventory/trucks" className="home-inventory-holder" onClick={() => this.handleClick('trucks')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('trucks')}>
                                 <img src={logTruck} className="home-inventory-icon" alt="Log Trucks"/>
                                 <p className="home-inventory-name"> Log Trucks </p>
                             </Link>
-                            <Link to="/inventory/trailers" className="home-inventory-holder" onClick={() => this.handleClick('trailers')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('trailers')}>
                                 <img src={logTrailer} className="home-inventory-icon" alt="Log Trailers"/>
                                 <p className="home-inventory-name"> Log Trailers </p>
                             </Link>
-                            <Link to="/inventory/dozers" className="home-inventory-holder" onClick={() => this.handleClick('dozers')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('dozers')}>
                                 <img src={dozer} className="home-inventory-icon" alt="Dozers"/>
                                 <p className="home-inventory-name"> Dozers </p>
                             </Link>
-                            <Link to="/inventory/attachments" className="home-inventory-holder" onClick={() => this.handleClick('attachments')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('attachments')}>
                                 <img src={attachments} className="home-inventory-icon" alt="Attachments" />
                                 <p className="home-inventory-name"> Attachments </p>
                             </Link>
-                            <Link to="/inventory/forklifts" className="home-inventory-holder" onClick={() => this.handleClick('forklifts')}>
+                            <Link to="/inventory" className="home-inventory-holder" onClick={() => this.handleClick('forklifts')}>
                                 <img src={forklift} className="home-inventory-icon" alt="Forklift" />
                                 <p className="home-inventory-name"> Forklifts </p>
                             </Link>
@@ -71,4 +90,4 @@ class Home extends React.Component {
     }
 }
 
-export default connect(state => state, { setCategory, addId, isClicked, setBrand, setSort })(Home);
+export default connect(state => state, { setCategory, addId, isClicked, setBrand, setSort, getInventory })(Home);
