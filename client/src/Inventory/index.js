@@ -4,8 +4,9 @@ import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
 import '../assets/scss/inventory.scss';
 import Sort from './Sort';
+import Item from './Item';
 import MapResults from './MapResults';
-import { Redirect } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -16,7 +17,8 @@ class Inventory extends React.Component {
             count: 0,
             recommendedImages: [],
             brands: [],
-            category: []
+            category: [],
+            name: ''
         }
     }
     componentDidMount() {
@@ -34,13 +36,13 @@ class Inventory extends React.Component {
         })
         this.setState({
             brands: brands,
-            category: categories
+            category: categories,
         })
     }
-    handleClick = (id) => {
+    handleClick = (id, name) => {
         this.props.addId(id);
         this.setState({
-            isClicked: true
+            isClicked: true,
         })
     }
     addComma = (num) => {
@@ -71,6 +73,10 @@ class Inventory extends React.Component {
     }
     showCategory = () => {
         return this.props.inventory.filter(item => {
+            if(this.props.category.id !== item._id) {
+                return item
+            }
+        }).filter(item => {
             if(this.props.category.category !== 'all') {
                 return item.category === this.props.category.category
             } return item.category
@@ -83,29 +89,34 @@ class Inventory extends React.Component {
                 return item 
             }
         }).sort(this.compareValues).map((item, i) => {
+            var name = item.name.split(' ').join('-')
             return (
-                <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={this.handleClick} />
+                <div className="inventory-link-container" key={item._id}>
+                    <Link className="inventory-link" to={`/inventory/${item.category}/${name}`}>
+                        <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
+                    </Link>
+                </div>
             )
         })
     } 
-    header = () => {
-        var category = this.props.category.category;
-        var header = category.toLowerCase().split('-')
-        for(var i = 0; i < header.length; i++) {
-            header[i] = header[i].charAt(0).toUpperCase() + header[i].substring(1);
+    showHeader = () => {
+        if(this.props.category.category !== 'all') {
+            return this.props.category.category.split('-').join(' ')
+        } else {
+            return "All Inventory"
         }
-        header = header.join(' ');
-        return header;
     }
     render() {
-        console.log(this.props)
+        console.log(this.props.category.id)
         return (
-            this.state.isClicked 
-            ? 
-            <Redirect to="/for-sale" />
-            :
+            <div className="inventory-page">
+            <Switch>
+                <Route to="/:name">
+                    <Item />
+                </Route>
+            </Switch>
             <div className="category-page">           
-                <h1 className="category-header"> {this.header()} For Sale </h1>     
+                <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                 <div className="category-wrapper">
                     <div className="category-sort-wrapper">
                         <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
@@ -114,6 +125,7 @@ class Inventory extends React.Component {
                         {this.showCategory()}
                     </div>
                 </div>    
+            </div>
             </div>
         )
     }

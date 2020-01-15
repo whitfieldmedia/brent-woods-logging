@@ -3,16 +3,21 @@
   display: inline-block;
 }
 
+.inventory-page {
+  padding: 0;
+  margin: 0;
+}
+
 .category-page {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
-  margin: 80px auto 50px auto;
-  padding: 0;
+  margin: 80px auto 0px auto;
   width: 100vw;
   overflow-x: hidden;
   height: auto;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
+  min-height: 40vh;
 }
 
 .category-wrapper {
@@ -29,6 +34,7 @@
   text-align: center;
   border-bottom: 2px solid #D7D0c8;
   width: 100%;
+  text-transform: capitalize;
 }
 
 .inventory-cta {
@@ -312,7 +318,7 @@
 
 .item-page {
   padding-top: 90px;
-  margin: 0 auto;
+  margin: 12px auto;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -446,6 +452,15 @@
   right: 0;
   background: #f7f7f7;
   border-radius: 50%;
+}
+
+.inventory-link-container {
+  width: 100%;
+}
+
+.inventory-link {
+  text-decoration: none;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1475px) {

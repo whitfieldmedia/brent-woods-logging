@@ -1,6 +1,7 @@
 import React from 'react';
 import { setBrand, setCategory, setSort } from '../redux/Category';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../assets/css/sort.css';
 
 class Sort extends React.Component {
@@ -126,10 +127,10 @@ class Sort extends React.Component {
                             View All 
                         </li>
                         {this.props.allCategories.map(type => (
-                            <li className="sort-item" onClick={() => this.sortByCategory(type)} key={type}>
+                            <Link className="sort-item" to={`/inventory/${type}`} onClick={() => this.sortByCategory(type)} key={type}>
                                 <span className={(this.props.category.category === type) ? 'check-box check-box-clicked' : 'check-box'}><i className="fas fa-check fa-xs"></i></span>
                                 {type} 
-                            </li>
+                            </Link>
                         ))}
                     </ul>
                 </div>

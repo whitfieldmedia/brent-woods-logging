@@ -1,3 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,500,700|Exo+2:400,500,600|Frank+Ruhl+Libre:400,500,700|Nunito:400,600,700|Poppins:300,400,500,600,700|Spectral:400,500,600&display=swap");
+.footer-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background: #3a3a3a;
+  padding: 25px 0 0 0;
+  position: relative;
+  bottom: 0;
+}
 
+.footer-column {
+  display: flex;
+  flex-flow: column;
+  padding: 15px 25px;
+}
+
+.footer-logo {
+  height: 125px;
+  width: auto;
+  background: #fff;
+  border-radius: 15px;
+}
+
+.footer-par {
+  font-family: "Spectral", serif;
+  font-size: 23px;
+  color: #f7f7f7;
+  padding: 10px 20px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.footer-par:hover {
+  color: #00A4E3;
+  text-decoration: underline;
+}
+
+.footer-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.footer-disclaimer {
+  font-family: "Alegreya", serif;
+  font-size: 16px;
+  color: #f7f7f7;
+}
+.footer-disclaimer strong {
+  color: #ffffff;
+}
+
+.footer-disclaimer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-disclaimer-link:hover {
+  color: #00A4E3;
+}
+
+@media only screen and (max-width: 1000px) {
+  .footer-par {
+    font-size: 21px;
+  }
+
+  .footer-disclaimer {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .footer-container {
+    padding-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .footer-par {
+    font-size: 19px;
+  }
+
+  .footer-disclaimer {
+    font-size: 14px;
+  }
+
+  .footer-logo {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .footer-par {
+    padding: 7px 10px;
+    font-size: 18px;
+  }
+
+  .footer-disclaimer {
+    width: 280px;
+  }
+
+  .footer-logo {
+    height: 90px;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .footer-column {
+    padding: 10px;
+    margin: 0;
+  }
+
+  .footer-par {
+    font-size: 16px;
+    padding: 5px;
+    margin: 0;
+  }
+
+  .footer-disclaimer {
+    font-size: 13px;
+    width: 270px;
+  }
+
+  .footer-logo {
+    height: 80px;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .footer-column {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 /*# sourceMappingURL=footer.css.map */

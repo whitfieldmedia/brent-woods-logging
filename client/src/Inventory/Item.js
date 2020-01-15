@@ -1,23 +1,31 @@
 import React from 'react';
-import Recommended from './Recommended';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { addId } from '../redux/Category';
+import { withRouter } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 
 class Item extends React.Component {
-    componentDidMount() {
-        window.scrollTo(0,0)
+    constructor() {
+        super();
+        this.state = {
+            category: ''
+        }
     }
-    async componentDidUpdate(prevProps) {
+    componentDidMount() {
+        console.log(this.props)
+        window.scrollTo(0,0);
+    }
+    componentDidUpdate(prevProps) {
         if(prevProps.category.id !== this.props.category.id) {
             window.scrollTo(0,0)
         }
     }
+    handleClick = () => {
+        this.props.addId('');
+    }
     mapItem = () => {
         return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => {
-            const length = item.images.length
-            console.log(length)
             var images = []
             item.images.map(image => {
                 return images.push({
@@ -61,22 +69,20 @@ class Item extends React.Component {
     }
     render() {
         return (
+            this.props.category.id.length > 1 
+            ?
             <div className="item-page">
                 <div className="go-back">
-                    <Link to="/shop-inventory" className="back-link">
+                    <div onClick={this.handleClick} className="back-link">
                         <i className="fas fa-chevron-left fa-sm"></i>  
                         Back To Inventory
-                    </Link>
+                    </div>
                 </div>
                 {this.mapItem()}
-                <div className="separator"></div>
-                <h2 className="recommended-header"> Recommended </h2>
-                <div className="recommended-holder">
-                    <Recommended />
-                </div>
             </div>
+            : null
         )
     }
 }
 
-export default connect(state => state)(Item);
+export default withRouter(connect(state => state, { addId })(Item));

@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './assets/icons/woods_logo.png';
 import { Link } from 'react-router-dom';
+import { setCategory } from './redux/Category';
+import { connect } from 'react-redux';
 import './assets/scss/nav.scss';
 
 class Nav extends React.Component {
@@ -28,7 +30,7 @@ class Nav extends React.Component {
                         </Link>
                     </li>
                     <li className="nav-link-holder">
-                        <Link to="/shop-inventory" className="nav-link"> 
+                        <Link to="/inventory" className="nav-link"> 
                             Inventory 
                         </Link>
                     </li>
@@ -38,4 +40,4 @@ class Nav extends React.Component {
     }
 }
 
-export default Nav;
+export default connect(state => state, { setCategory })(Nav);
