@@ -13,7 +13,7 @@ import { setCategory, addId, isClicked, setBrand, setSort } from './redux/Catego
 import { getInventory } from './redux/Inventory';
 import Contact from './Contact';
 import About from './About';
-import './assets/scss/home.scss';
+import './assets/css/home.css';
 
 class Home extends React.Component {
     componentDidMount() {

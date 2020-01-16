@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
-import '../assets/scss/inventory.scss';
+import '../assets/css/inventory.css';
 import Sort from './Sort';
 import Item from './Item';
 import MapResults from './MapResults';
@@ -139,7 +139,9 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                <Route path="/inventory/:name" component={Item} />
+                <Route path="/inventory/:name">
+                    <Item item={this.state.item} />
+                </Route>
                 {/* {this.props.inventory.map(item => (
                     <Route path={`/inventory/:${item.name.split(' ').join('-')}`}>
                         <Item item={this.state.item} />

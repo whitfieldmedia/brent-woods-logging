@@ -3,7 +3,7 @@ import logo from './assets/icons/woods_logo.png';
 import { Link } from 'react-router-dom';
 import { setCategory } from './redux/Category';
 import { connect } from 'react-redux';
-import './assets/scss/nav.scss';
+import './assets/css/nav.css';
 
 class Nav extends React.Component {
     constructor() {

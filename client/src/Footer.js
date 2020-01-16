@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './assets/icons/woods_logo.png';
-import './assets/scss/footer.scss';
+import './assets/css/footer.css';
 
 const Footer = () => {
     return (
