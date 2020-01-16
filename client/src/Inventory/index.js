@@ -138,11 +138,9 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                {this.props.inventory.map(item => (
-                    <Route key={item._id} path={`/inventory/:${item.name.split(' ').join('-')}`}>
-                        <Item item={this.state.item} />
-                    </Route>
-                ))}
+                <Route path="/inventory/:name">
+                    <Item item={this.state.item} />
+                </Route>
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
