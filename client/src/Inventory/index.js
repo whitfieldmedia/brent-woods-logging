@@ -4,9 +4,8 @@ import { setCategory, addId, isClicked, setBrand } from '../redux/Category';
 import { getInventory } from '../redux/Inventory';
 import '../assets/css/inventory.css';
 import Sort from './Sort';
-import Item from './Item';
 import MapResults from './MapResults';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -107,26 +106,6 @@ class Inventory extends React.Component {
             return;
         }
     }
-    showCategory = () => {
-        return this.props.inventory.filter(item => { 
-            if(this.props.category.brand === 'all') { 
-                return item 
-            } else if(this.props.category.brand.length > 0 && this.props.category.brand !== 'all') { 
-                return item.brand === this.props.category.brand 
-            } else { 
-                return item 
-            }
-        }).sort(this.compareValues).map((item, i) => {
-            var name = item.name.split(' ').join('-')
-            return (
-                <div className="inventory-link-container" key={item._id}>
-                    <Link className="inventory-link" to={`/inventory/${name}`}>
-                        <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
-                    </Link>
-                </div>
-            )
-        })
-    } 
     showHeader = () => {
         if(this.props.category.category !== 'all' && this.props.category.category.length > 1) {
             console.log(this.props.category.category)
@@ -138,7 +117,6 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                <Item item={this.state.item} />
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
@@ -161,7 +139,7 @@ class Inventory extends React.Component {
                                     return item
                                 }
                             }).sort(this.compareValues).map(item => (
-                                <Link key={item._id} className="inventory-link" to={`/inventory/${item.name.split(' ').join('-')}`}>
+                                <Link key={item._id} className="inventory-link" to={`/${item.name.split(' ').join('-')}`}>
                                     <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
                                 </Link>
                             ))}

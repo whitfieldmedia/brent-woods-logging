@@ -7,24 +7,13 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import '../assets/css/inventory.css'
 
 class Item extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            category: ''
-        }
-    }
     componentDidMount() {
-        console.log(this.props)
         window.scrollTo(0,0);
     }
     componentDidUpdate(prevProps) {
         if(prevProps.category.id !== this.props.category.id) {
             window.scrollTo(0,0)
         }
-    }
-    handleClick = () => {
-        this.props.addId('');
-        console.log(this.props.category.id)
     }
     mapItem = () => {
         return this.props.inventory.filter(item => {
