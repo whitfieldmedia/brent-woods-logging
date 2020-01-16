@@ -6,7 +6,7 @@ import '../assets/scss/inventory.scss';
 import Sort from './Sort';
 import Item from './Item';
 import MapResults from './MapResults';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 class Inventory extends React.Component {
     constructor() {
@@ -135,9 +135,10 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-            {this.state.useParams
+                <Route path={`/inventory/:name`} component={Item} />
+            {/* {this.state.useParams
                 ?  <Item />
-                :
+                : */}
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
@@ -149,7 +150,7 @@ class Inventory extends React.Component {
                         </div>
                     </div>    
                 </div>
-                }
+              //  }
             </div>
 
         )
