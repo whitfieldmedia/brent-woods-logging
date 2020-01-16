@@ -4,6 +4,7 @@ import { addId } from '../redux/Category';
 import { Link } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import '../assets/css/inventory.css'
 
 class Item extends React.Component {
     constructor() {
