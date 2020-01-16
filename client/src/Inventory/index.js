@@ -24,6 +24,7 @@ class Inventory extends React.Component {
         }
     }
     componentDidMount() {
+        window.scrollTo(0,0);
         var name = this.props.history.location.pathname.split('/').slice(-1)[0];
         name = name.split('-').join(' ');
         if(name.length > 0 && name !== 'inventory') {
@@ -42,8 +43,6 @@ class Inventory extends React.Component {
                 }
             })
         }
-
-        window.scrollTo(0,0);
         var categories = [];
         var brands = [];
         this.props.inventory.map(item => {
@@ -139,14 +138,11 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                <Route path="/inventory/:name">
-                    <Item item={this.state.item} />
-                </Route>
-                {/* {this.props.inventory.map(item => (
-                    <Route path={`/inventory/:${item.name.split(' ').join('-')}`}>
+                {this.props.inventory.map(item => (
+                    <Route key={item._id} path={`/inventory/:${item.name.split(' ').join('-')}`}>
                         <Item item={this.state.item} />
                     </Route>
-                ))} */}
+                ))}
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
@@ -162,8 +158,14 @@ class Inventory extends React.Component {
                                 } else {
                                     return null;
                                 }
+                            }).filter(item => {
+                                if(item.brand !== 'all' && item.brand === this.props.category.brand) {
+                                    return item
+                                } else {
+                                    return item
+                                }
                             }).sort(this.compareValues).map(item => (
-                                <Link className="inventory-link" to={`/inventory/${item.name.split(' ').join('-')}`}>
+                                <Link key={item._id} className="inventory-link" to={`/inventory/${item.name.split(' ').join('-')}`}>
                                     <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
                                 </Link>
                             ))}
