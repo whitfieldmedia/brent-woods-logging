@@ -19,15 +19,30 @@ class Inventory extends React.Component {
             brands: [],
             category: [],
             name: '',
-            useParams: false
+            useParams: false,
+            item: {}
         }
     }
     componentDidMount() {
-        if(this.props.category.id) {
-            this.setState({
-                useParams: true
+        var name = this.props.history.location.pathname.split('/').slice(-1)[0];
+        name = name.split('-').join(' ');
+        if(name.length > 0 && name !== 'inventory') {
+            console.log(name)
+            return this.props.inventory.map(item => {
+                if(item.name === name) {
+                    console.log(item)
+                    this.props.addId(item._id)
+                    this.props.setCategory(item.category)
+                    this.setState({
+                        item: item
+                    })
+                    return item
+                } else {
+                    return null;
+                }
             })
         }
+
         window.scrollTo(0,0);
         var categories = [];
         var brands = [];
@@ -38,31 +53,28 @@ class Inventory extends React.Component {
             if(!categories.includes(item.category) && item.category) {
                 categories.push(item.category)
             }
+            return item;
         })
         this.setState({
             brands: brands,
             category: categories
         })
     }
-    componentDidUpdate(prevProps) {
-        if(this.props.history.location.pathname !== "/inventory") {
-            const name = this.props.history.location.pathname.split('/').slice(-1)[0]
-            if(!this.state.useParams) {
+    componentDidUpdate() {
+        var name = this.props.history.location.pathname.split('/').slice(-1)[0]
+        this.props.inventory.filter(item => {
+            if(item.name === name && item !== this.state.item) {
+                console.log(item)
+                this.props.addId(item._id)
+                this.props.setCategory(item.category)
                 this.setState({
-                    useParams: true
+                    item: item
                 })
+                return item;
+            } else {
+                return null;
             }
-            return this.props.inventory.filter(item => item.name === name)
-        } else if (this.state.useParams) {
-            this.setState({
-                useParams: false
-            })
-        }
-        if(this.props.match.params.length > 0 && !this.state.useParams && prevProps.match.params !== this.props.match.params) {
-            this.setState({
-                useParams: true
-            })
-        }
+        })
     }
     handleClick = (id, name) => {
         this.props.addId(id);
@@ -97,15 +109,7 @@ class Inventory extends React.Component {
         }
     }
     showCategory = () => {
-        return this.props.inventory.filter(item => {
-            if(this.props.category.id !== item._id) {
-                return item
-            }
-        }).filter(item => {
-            if(this.props.category.category !== 'all') {
-                return item.category === this.props.category.category
-            } return item.category
-        }).filter(item => { 
+        return this.props.inventory.filter(item => { 
             if(this.props.category.brand === 'all') { 
                 return item 
             } else if(this.props.category.brand.length > 0 && this.props.category.brand !== 'all') { 
@@ -135,10 +139,12 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                <Route path={`/inventory/:name`} component={Item} />
-            {/* {this.state.useParams
-                ?  <Item />
-                : */}
+                <Route path="/inventory/:name" component={Item} />
+                {/* {this.props.inventory.map(item => (
+                    <Route path={`/inventory/:${item.name.split(' ').join('-')}`}>
+                        <Item item={this.state.item} />
+                    </Route>
+                ))} */}
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
@@ -146,11 +152,23 @@ class Inventory extends React.Component {
                             <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
                         </div>
                         <div className="inventory-page">
-                            {this.showCategory()}
+                            {this.props.inventory.filter(item => {
+                                if(item.category === this.props.category.category) {
+                                    return item;
+                                } else if(this.props.category.category === 'all') {
+                                    return item;
+                                } else {
+                                    return null;
+                                }
+                            }).sort(this.compareValues).map(item => (
+                                <Link className="inventory-link" to={`/inventory/${item.name.split(' ').join('-')}`}>
+                                    <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
+                                </Link>
+                            ))}
                         </div>
                     </div>    
                 </div>
-              //  }
+
             </div>
 
         )

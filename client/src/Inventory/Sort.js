@@ -1,7 +1,6 @@
 import React from 'react';
 import { setBrand, setCategory, setSort } from '../redux/Category';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import '../assets/css/sort.css';
 
 class Sort extends React.Component {

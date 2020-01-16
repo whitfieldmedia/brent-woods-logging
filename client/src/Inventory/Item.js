@@ -26,7 +26,13 @@ class Item extends React.Component {
         console.log(this.props.category.id)
     }
     mapItem = () => {
-        return this.props.inventory.filter(item => item._id === this.props.category.id).map((item, i) => {
+        return this.props.inventory.filter(item => {
+            if(item._id === this.props.category.id) {
+                return item
+            } else {
+                return null;
+            }
+        }).map((item, i) => {
             var images = []
             item.images.map(image => {
                 return images.push({
@@ -69,6 +75,7 @@ class Item extends React.Component {
         return;
     }
     render() {
+        console.log(this.props)
         return (
             this.props.category.id.length > 1 
             ?
