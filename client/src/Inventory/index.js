@@ -24,24 +24,6 @@ class Inventory extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0,0);
-        var name = this.props.history.location.pathname.split('/').slice(-1)[0];
-        name = name.split('-').join(' ');
-        if(name.length > 0 && name !== 'inventory') {
-            console.log(name)
-            return this.props.inventory.map(item => {
-                if(item.name === name) {
-                    console.log(item)
-                    this.props.addId(item._id)
-                    this.props.setCategory(item.category)
-                    this.setState({
-                        item: item
-                    })
-                    return item
-                } else {
-                    return null;
-                }
-            })
-        }
         var categories = [];
         var brands = [];
         this.props.inventory.map(item => {
@@ -58,23 +40,7 @@ class Inventory extends React.Component {
             category: categories
         })
     }
-    componentDidUpdate() {
-        var name = this.props.history.location.pathname.split('/').slice(-1)[0]
-        this.props.inventory.filter(item => {
-            if(item.name === name && item !== this.state.item) {
-                console.log(item)
-                this.props.addId(item._id)
-                this.props.setCategory(item.category)
-                this.setState({
-                    item: item
-                })
-                return item;
-            } else {
-                return null;
-            }
-        })
-    }
-    handleClick = (id, name) => {
+    handleClick = (id) => {
         this.props.addId(id);
         this.setState({
             isClicked: true
