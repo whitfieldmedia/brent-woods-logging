@@ -138,9 +138,7 @@ class Inventory extends React.Component {
     render() {
         return (
             <div className="inventory-page">
-                <Route path="/inventory/:name">
-                    <Item item={this.state.item} />
-                </Route>
+                <Item item={this.state.item} />
                 <div className="category-page">           
                     <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
                     <div className="category-wrapper">
