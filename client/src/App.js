@@ -19,6 +19,8 @@ import KomatsuDozer from './Inventory/KomatsuP3707';
 import Tigercat640Clambunk from './Inventory/Tigercat640Clambunk2000';
 import Tigercat724D05 from './Inventory/Tigercat724D05';
 import Tigercat82204 from './Inventory/Tigercat82204';
+import Deere437D from './Inventory/Deere437D16';
+import Tigercat23414 from './Inventory/Tigercat23414';
 
 function App() {
     return (
@@ -41,6 +43,8 @@ function App() {
                 <Route path="/2005-Tigercat-724D" component={Tigercat724D05} />
                 <Route path="/2017-Cat-559C" component={Cat559C17} />
                 <Route path="/2013-Cat-559B" component={Cat559B13} />
+                <Route path="/2016-John-Deere-437D" component={Deere437D} />
+                <Route path="/2014-Tigercat-234" component={Tigercat23414} />
             </Switch>
             <Footer />
         </div>
