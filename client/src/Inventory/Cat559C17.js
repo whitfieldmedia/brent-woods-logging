@@ -19,7 +19,7 @@ class Cat559C17 extends React.Component {
     }
     handleClick = () => {
         this.props.addId('');
-        console.log(this.props.category.id)
+  
     }
     render() {
         return (

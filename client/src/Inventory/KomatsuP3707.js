@@ -19,7 +19,7 @@ class KomatsuP3707 extends React.Component {
     }
     handleClick = () => {
         this.props.addId('');
-        console.log(this.props.category.id)
+  
     }
     render() {
         return (

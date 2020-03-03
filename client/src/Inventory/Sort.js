@@ -79,7 +79,7 @@ class Sort extends React.Component {
     render() {
         return (
             <div className="sort-container">
-                <div className="sort-column">
+                {/* <div className="sort-column">
                     <h2 className="sort-header" onClick={this.handleSortClick}> Sort By </h2>
                     <ul className={this.state.sortClicked ? "sort-wrapper-show" :"sort-wrapper"}>
                         <li className="sort-item" onClick={() => this.handleSort('lowPrice')}> 
@@ -117,7 +117,7 @@ class Sort extends React.Component {
                             Year: Oldest First 
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="sort-column">
                     <h2 className="sort-header" onClick={this.handleCategoryClick}> Category </h2>
                     <ul className={this.state.categoryClicked ? "sort-wrapper-show" :"sort-wrapper"}>

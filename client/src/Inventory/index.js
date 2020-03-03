@@ -74,14 +74,12 @@ class Inventory extends React.Component {
     }
     showHeader = () => {
         if(this.props.category.category !== 'all' && this.props.category.category.length > 1) {
-            console.log(this.props.category.category)
             return this.props.category.category.split('-').join(' ')
         } else {
             return "All Inventory"
         }
     }
     render() {
-      console.log(this.props.category.brand)
         return (
             <div className="inventory-page">
                 <div className="category-page">
@@ -100,18 +98,19 @@ class Inventory extends React.Component {
                                     return null;
                                 }
                             }).filter(item => {
-                                if((item.brand !== 'all') && (item.brand === this.props.category.brand)) {
+                                if(this.props.category.brand === 'all' || this.props.category.brand ===  '') {
                                     return item
-                                } else if (item.brand === 'all') {
+                                } else if (item.brand === this.props.category.brand) {
                                     return item
                                 } else {
                                   return null;
                                 }
-                            }).sort(this.compareValues).map(item => (
+                            }).map(item =>{
+                                return (
                                 <Link key={item._id} className="inventory-link" to={`/${item.name.split(' ').join('-')}`}>
                                     <MapResults key={item._id} item={item} addComma={this.addComma} handleClick={() => this.handleClick(item._id, item.name)} />
                                 </Link>
-                            ))}
+                            )})}
                         </div>
                     </div>
                 </div>
