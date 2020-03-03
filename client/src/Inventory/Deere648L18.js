@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Item from './Item';
 import '../assets/css/inventory.css'
 
-class Tigercat23414 extends React.Component {
+class Deere648L18 extends React.Component {
     componentDidMount() {
         this.props.getInventory();
         window.scrollTo(0,0);
@@ -25,7 +25,7 @@ class Tigercat23414 extends React.Component {
         return (
             <div>
                 {this.props.inventory.filter(item => {
-                    if(item._id === '5e2726731c9d4400003f022b') {
+                    if(item._id === '5e5e6d331c9d4400009cf6fa') {
                         return item;
                     } else {
                         return null;
@@ -38,4 +38,4 @@ class Tigercat23414 extends React.Component {
     }
 }
 
-export default connect(state => state, { getInventory })(Tigercat23414);
+export default connect(state => state, { getInventory })(Deere648L18);

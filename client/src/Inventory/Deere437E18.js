@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Item from './Item';
 import '../assets/css/inventory.css'
 
-class Deere843K14 extends React.Component {
+class Deere437E18 extends React.Component {
     componentDidMount() {
         this.props.getInventory();
         window.scrollTo(0,0);
@@ -25,7 +25,7 @@ class Deere843K14 extends React.Component {
         return (
             <div>
                 {this.props.inventory.filter(item => {
-                    if(item._id === '5d9e3b231c9d4400003420c0') {
+                    if(item._id === '5e5e7add1c9d4400009cf6fe') {
                         return item;
                     } else {
                         return null;
@@ -38,4 +38,4 @@ class Deere843K14 extends React.Component {
     }
 }
 
-export default connect(state => state, { getInventory })(Deere843K14);
+export default connect(state => state, { getInventory })(Deere437E18);

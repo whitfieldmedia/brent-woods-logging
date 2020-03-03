@@ -81,10 +81,11 @@ class Inventory extends React.Component {
         }
     }
     render() {
+      console.log(this.props.category.brand)
         return (
             <div className="inventory-page">
-                <div className="category-page">           
-                    <h1 className="category-header"> {this.showHeader()} For Sale </h1>     
+                <div className="category-page">
+                    <h1 className="category-header"> {this.showHeader()} For Sale </h1>
                     <div className="category-wrapper">
                         <div className="category-sort-wrapper">
                             <Sort id="sort-category-page" allBrands={this.state.brands} allCategories={this.state.category} />
@@ -99,10 +100,12 @@ class Inventory extends React.Component {
                                     return null;
                                 }
                             }).filter(item => {
-                                if(item.brand !== 'all' && item.brand === this.props.category.brand) {
+                                if((item.brand !== 'all') && (item.brand === this.props.category.brand)) {
+                                    return item
+                                } else if (item.brand === 'all') {
                                     return item
                                 } else {
-                                    return item
+                                  return null;
                                 }
                             }).sort(this.compareValues).map(item => (
                                 <Link key={item._id} className="inventory-link" to={`/${item.name.split(' ').join('-')}`}>
@@ -110,7 +113,7 @@ class Inventory extends React.Component {
                                 </Link>
                             ))}
                         </div>
-                    </div>    
+                    </div>
                 </div>
 
             </div>
